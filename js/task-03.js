@@ -15,9 +15,18 @@ const images = [
 
 const galleryRef = document.querySelector(".gallery");
 
-const imageItemRef = images.map((item) => {
-  galleryRef.insertAdjacentHTML(
-    "beforeend",
-    `<li class="gallery__item"><img src="${item.url}" class="gallery__image" alt="${item.alt}" width=320></li>`
-  );
-});
+// const imageItemRef = images.map((item) => {
+//   galleryRef.insertAdjacentHTML(
+//     "beforeend",
+//     `<li class="gallery__item"><img src="${item.url}" class="gallery__image" alt="${item.alt}" width=320></li>`
+//   );
+// });
+
+const imagesMarkup = images
+  .map(
+    (image) =>
+      `<li class="gallery__item"><img src="${image.url}" class="gallery__image" alt="${image.alt}" width=320></li>`
+  )
+  .join("");
+
+galleryRef.insertAdjacentHTML("beforeend", imagesMarkup);

@@ -1,18 +1,12 @@
 const form = document.querySelector(".login-form");
 
-form.addEventListener("submit", onFormSubmit);
-
 function onFormSubmit(event) {
   event.preventDefault();
 
   const formElements = event.currentTarget.elements;
 
-  if (
-    formElements.email.value.length === 0 ||
-    formElements.password.value.length === 0
-  ) {
-    alert("Все поля должны быть заполнены");
-    return;
+  if (formElements.email.value === "" || formElements.password.value === "") {
+    return alert("Все поля должны быть заполнены");
   }
 
   const email = formElements.email.value;
@@ -21,5 +15,7 @@ function onFormSubmit(event) {
   const formData = { email, password };
   console.log(formData);
 
-  form.reset();
+  event.currentTarget.reset();
 }
+
+form.addEventListener("submit", onFormSubmit);
