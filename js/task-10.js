@@ -13,11 +13,11 @@ const refs = {
 
 const { input, createBtn, destroyBtn, boxesMarkup } = refs;
 
-function createBoxes(amount) {
-  let countWidth = 30;
-  let countHeight = 30;
-  let markupArray = [];
+let countWidth = 30;
+let countHeight = 30;
 
+function createBoxes(amount) {
+  let markupArray = [];
   if (amount < Number(input.min) || amount > Number(input.max)) {
     alert(`Введите число от ${input.min} до ${input.max}`);
     input.value = "";
@@ -32,12 +32,15 @@ function createBoxes(amount) {
     countWidth += 10;
     countHeight += 10;
   }
+
   boxesMarkup.insertAdjacentHTML("beforeend", markupArray.join(""));
 }
 
 function destroyBoxes() {
   boxesMarkup.innerHTML = "";
   input.value = "";
+  countWidth = 30;
+  countHeight = 30;
 }
 
 createBtn.addEventListener("click", () => createBoxes(input.value));
