@@ -18,7 +18,7 @@ function createBoxes(amount) {
   let countHeight = 30;
   let markupArray = [];
 
-  amount = Number(input.value);
+  // amount = Number(input.value);
 
   if (amount < Number(input.min) || amount > Number(input.max)) {
     alert(`Введите число от ${input.min} до ${input.max}`);
@@ -42,5 +42,5 @@ function destroyBoxes() {
   input.value = "";
 }
 
-createBtn.addEventListener("click", createBoxes);
+createBtn.addEventListener("click", () => createBoxes(input.value));
 destroyBtn.addEventListener("click", destroyBoxes);
